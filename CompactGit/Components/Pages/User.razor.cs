@@ -37,10 +37,13 @@ namespace CompactGit.Components.Pages
             if (e.Key == "Enter")
             {
                 if (FindInput.Contains("/") == true)
+                {
                     NavigationManager.NavigateTo("/" + FindInput);
-
+                }
                 else
+                {
                     NavigationManager.NavigateTo("/user/" + FindInput);
+                }
             }
         }
 
