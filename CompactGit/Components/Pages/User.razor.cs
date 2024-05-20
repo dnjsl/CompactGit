@@ -35,7 +35,7 @@ namespace CompactGit.Components.Pages
         private void FindReposButtonClick(MouseEventArgs e)
         {
             if (FindInput.Contains("/") == true)
-                NavigationManager.NavigateTo("/repos/" + FindInput);
+                NavigationManager.NavigateTo("/" + FindInput);
 
             else
                 NavigationManager.NavigateTo("/user/" + FindInput);

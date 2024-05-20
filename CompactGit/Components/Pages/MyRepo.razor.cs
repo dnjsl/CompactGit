@@ -41,9 +41,16 @@ namespace CompactGit.Components.Pages
             showTypeDropdown = !showTypeDropdown;
         }
 
-        private void FilterRepos(bool isPublic)
+        private void FilterRepos(bool? isPublic)
         {
-            FilteredRepoList = RepoList.Where(repo => repo.IsPublic == isPublic).ToList();
+            if (isPublic == null)
+            {
+                FilteredRepoList = RepoList.ToList();
+            }
+            else
+            {
+                FilteredRepoList = RepoList.Where(repo => repo.IsPublic == isPublic).ToList();
+            }
             showTypeDropdown = false;
         }
 

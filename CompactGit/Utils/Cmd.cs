@@ -4,7 +4,7 @@ namespace CompactGit.Utils
 {
     public class Cmd
     {
-        public static string CallCmd(string command)
+        public static void CallCmd(string command)
         {
             Process process = new Process();
             ProcessStartInfo startInfo = new ProcessStartInfo();
@@ -15,11 +15,6 @@ namespace CompactGit.Utils
             
             process.StartInfo = startInfo;
             process.Start();
-
-            string output = process.StandardOutput.ReadToEnd();
-            process.WaitForExit();
-
-            return output;
         }
     }
 }
