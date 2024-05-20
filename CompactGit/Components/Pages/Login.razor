@@ -1,0 +1,19 @@
+﻿@page "/"
+@rendermode InteractiveServer
+
+<div class="centering">
+    <h1>Login</h1>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" @bind="Id" />
+        <label for="id">ID</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="password" class="form-control" @bind="Passwd" pattern="" />
+        <label for="password">Password</label>
+    </div>
+    <div class="text-field">
+        <span style="color:red">@ErrorMsg</span>
+    </div>
+    <button type="submit" class="btn btn-primary" @onclick="LoginButtonClick">Login</button>
+    <button type="button" class="btn btn-primary" @onclick="SignUpButtonClick">Signup</button>
+</div>

@@ -1,0 +1,60 @@
+﻿@page "/user/{UserUrl}"
+@rendermode InteractiveServer
+
+<PageTitle>@UserUrl</PageTitle>
+
+<div class="find_box">
+
+    <input type="text"
+           name="find"
+           placeholder="Find Other User's Repository"
+           @bind=FindInput>
+
+    <button id="Find" class="btn btn-primary"
+            type="button"
+            @onclick="FindReposButtonClick">
+        Find
+    </button>
+
+</div>
+
+<div class="My_repo">
+
+    <button id="My_repo" class="btn btn-primary"
+            type="button"
+            @onclick="ReposButtonClick"
+            hidden=@IsNotMyProfile>
+        My Repository
+    </button>
+
+</div>
+
+<div class="Settings">
+
+    <button id="Settings" class="btn btn-primary"
+            type="button"
+            @onclick="SettingsButtonClickAsync"
+            hidden=@IsNotMyProfile>
+        Settings
+    </button>
+
+</div>
+
+<div class="Logout">
+
+    <button id="Settings" class="btn btn-primary"
+            type="button"
+            @onclick="LogoutButtonClickAsync"
+            hidden=@IsNotMyProfile>
+        Logout
+    </button>
+
+</div>
+
+<div class="Introduce">
+
+    <p>
+        Introduce
+    </p>
+
+</div>
