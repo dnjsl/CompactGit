@@ -59,28 +59,28 @@ namespace CompactGit.Components.Pages
 
             if (!File.Exists(Path.Combine("users", id)))
             {
-                StreamWriter sr = new StreamWriter(Path.Combine("users", id));
-
-                try
+                using (StreamWriter sw = new StreamWriter(Path.Combine("users", id)))
                 {
-                    UserData user = new UserData()
+                    try
                     {
-                        Id = Id,
-                        Pw = PassHashing(Passwd),
-                        Nickname = Nickname,
-                        Email = Email,
-                    };
+                        UserData user = new UserData()
+                        {
+                            Id = Id,
+                            Pw = PassHashing(Passwd),
+                            Nickname = Nickname,
+                            Email = Email,
+                        };
 
-                    string json = JsonSerializer.Serialize(user);
+                        string json = JsonSerializer.Serialize(user);
 
-                    sr.Write(json);
-                    sr.Close();
+                        sw.Write(json);
 
-                    return user;
-                }
-                catch
-                {
-                    return null;
+                        return user;
+                    }
+                    catch
+                    {
+                        return null;
+                    }
                 }
             }
 

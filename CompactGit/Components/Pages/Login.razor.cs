@@ -84,21 +84,23 @@ namespace CompactGit.Components.Pages
 
             if (File.Exists(Path.Combine("users", id)))
             {
-                StreamReader sr = new StreamReader(Path.Combine("users", id));
-                string json = sr.ReadToEnd();
-
-                try
+                using (StreamReader sr = new StreamReader(Path.Combine("users", id)))
                 {
-                    UserData user = JsonSerializer.Deserialize<UserData>(json)!;
+                    string json = sr.ReadToEnd();
 
-                    if (user.Pw == PassHashing(pass))
+                    try
                     {
-                        return user;
+                        UserData user = JsonSerializer.Deserialize<UserData>(json)!;
+
+                        if (user.Pw == PassHashing(pass))
+                        {
+                            return user;
+                        }
                     }
-                }
-                catch
-                {
-                    return null;
+                    catch
+                    {
+                        return null;
+                    }
                 }
             }
 
