@@ -11,18 +11,15 @@
         <label>Repository Name</label>
     </div>
 </div>
-<button id="New" class="btn btn-primary" type="button" @onclick="NewButtonClickAsync">New</button>
 
 <div>
+    <button id="New" class="btn btn-primary" type="button" @onclick="NewButtonClickAsync">New</button>
     <button class="btn btn-primary" @onclick="ToggleTypeDropdown">Type</button>
     <div id="typeDropdown" style="display: @(showTypeDropdown ? "block" : "none")">
         <button class="btn btn-primary" @onclick="() => FilterRepos(null)">All</button>
         <button class="btn btn-primary" @onclick="() => FilterRepos(true)">Public</button>
         <button class="btn btn-primary" @onclick="() => FilterRepos(false)">Private</button>
     </div>
-</div>
-
-<div class="Settings">
     <button id="Settings" class="btn btn-primary"
             type="button"
             @onclick="SettingsButtonClickAsync">
