@@ -32,13 +32,16 @@ namespace CompactGit.Components.Pages
 
         private string FindInput { get; set; } = "";
 
-        private void FindReposButtonClick(MouseEventArgs e)
+        private void FindRepoEnter(KeyboardEventArgs e)
         {
-            if (FindInput.Contains("/") == true)
-                NavigationManager.NavigateTo("/" + FindInput);
+            if (e.Key == "Enter")
+            {
+                if (FindInput.Contains("/") == true)
+                    NavigationManager.NavigateTo("/" + FindInput);
 
-            else
-                NavigationManager.NavigateTo("/user/" + FindInput);
+                else
+                    NavigationManager.NavigateTo("/user/" + FindInput);
+            }
         }
 
         private void ReposButtonClick(MouseEventArgs e)
