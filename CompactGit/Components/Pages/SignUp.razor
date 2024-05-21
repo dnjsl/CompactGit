@@ -25,8 +25,8 @@
         <input @bind-value="Email" @bind-value:event="oninput" required class="form-control" pattern="^[a-zA-Z0-9_-.@@]*$" />
         <label for="email">Email</label>
     </div>
-    <div>
-        <label for="error">@ErrorMsg</label>
+    <div class="text-field">
+        <span style="color:red">@ErrorMsg</span>
     </div>
     <button type="button" class="btn btn-primary" @onclick="SignUpButtonClick">Sign up</button>
     <div class="link">

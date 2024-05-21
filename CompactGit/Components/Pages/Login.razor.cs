@@ -25,14 +25,11 @@ namespace CompactGit.Components.Pages
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            if (firstRender)
-            {
-                string loginCookie = await Cookie.GetValue("login");
+            string loginCookie = await Cookie.GetValue("login");
 
-                if (!string.IsNullOrEmpty(loginCookie))
-                {
-                    NavigationManager.NavigateTo("/user/" + loginCookie);
-                }
+            if (!string.IsNullOrEmpty(loginCookie))
+            {
+                NavigationManager.NavigateTo("/user/" + loginCookie);
             }
 
             await base.OnAfterRenderAsync(firstRender);

@@ -38,16 +38,12 @@ namespace CompactGit.Components.Pages
             {
                 if (FindInput.Contains("/") == true)
                 {
-                    NavigationManager.NavigateTo("/" + FindInput);
+                    NavigationManager.NavigateTo("/r/" + FindInput);
                 }
                 else
                 {
                     NavigationManager.NavigateTo("/user/" + FindInput);
                 }
-            }
-            else
-            {
-                FindInput += e.Key;
             }
         }
 

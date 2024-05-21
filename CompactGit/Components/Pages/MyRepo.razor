@@ -39,7 +39,7 @@
             @foreach (var repo in ShowRepoList)
             {
                 <tr>
-                    <td><a href="@repo.UserId/@repo.RepoName">@repo.UserId/@repo.RepoName</a></td>
+                    <td><a href="/r/@repo.UserId/@repo.RepoName">@repo.UserId/@repo.RepoName</a></td>
                     <td>@repo.Description</td>
                     <td>@repo.IsPublic</td>
                 </tr>

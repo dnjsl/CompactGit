@@ -4,8 +4,10 @@ using System.Text.Json;
 
 namespace CompactGit.Components.Pages
 {
-    public partial class MainRepo
+    public partial class MainRepo : ComponentBase
     {
+        public string ErrorMsg { get; set; } = "";
+
         [Parameter]
         public string UserUrl { get; set; } = default!;
 
@@ -20,12 +22,12 @@ namespace CompactGit.Components.Pages
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            Initialize();
+            await Initialize();
 
             await base.OnAfterRenderAsync(firstRender);
         }
 
-        private async void Initialize()
+        private async Task Initialize()
         {
             string user = await Cookie.GetValue("login");
 
@@ -34,6 +36,7 @@ namespace CompactGit.Components.Pages
             }
             else
             {
+                NavigationManager.NavigateTo("/acc-din");
             }
         }
 
