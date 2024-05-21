@@ -45,6 +45,10 @@ namespace CompactGit.Components.Pages
                     NavigationManager.NavigateTo("/user/" + FindInput);
                 }
             }
+            else
+            {
+                FindInput += e.Key;
+            }
         }
 
         private void ReposButtonClick(MouseEventArgs e)

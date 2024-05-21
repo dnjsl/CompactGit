@@ -60,14 +60,9 @@ namespace CompactGit.Components.Pages
             showTypeDropdown = false;
         }
 
-        private void SettingsButtonClickAsync()
+        private void ProfileButtonClick()
         {
-            NavigationManager.NavigateTo("/settings/" + UserUrl);
-        }
-
-        private void RepositoryClickAsync(string name)
-        {
-            NavigationManager.NavigateTo(UserUrl + "/" + name);
+            NavigationManager.NavigateTo("/user/" + UserUrl);
         }
 
         private List<RepoData>? GetRepos(string userUrl)
