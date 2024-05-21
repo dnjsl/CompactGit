@@ -25,8 +25,6 @@ namespace CompactGit.Components.Pages
             await base.OnAfterRenderAsync(firstRender);
         }
 
-        string Hmm { get; set; } = "";
-
         private async void Initialize()
         {
             string user = await Cookie.GetValue("login");
