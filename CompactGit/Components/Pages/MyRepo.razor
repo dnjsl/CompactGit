@@ -1,15 +1,13 @@
 ﻿@page "/repos/{UserUrl}"
 @rendermode InteractiveServer
 
-<PageTitle>My Repository</PageTitle>
+<PageTitle>@UserUrl's Repositories</PageTitle>
 
 <h1>My Repository</h1>
 
-<div>
-    <div class="form-floating mb-3">
-        <input type="text" class="form-control" @bind="FindInput">
-        <label>Repository Name</label>
-    </div>
+<div class="form-floating mb-3">
+    <input type="text" class="form-control" @bind="FindInput">
+    <label>Repository Name</label>
 </div>
 
 <div>

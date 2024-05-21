@@ -11,7 +11,7 @@ namespace CompactGit.Components.Pages
     {
         private bool showTypeDropdown = false;
         private string findInput = "";
-        private string FindInput { get=>findInput; set { findInput = value; TextOnChange(); } }
+        private string FindInput { get => findInput; set { findInput = value; TextOnChange(); } }
 
         private List<RepoData> FilteredRepoList { get; set; } = new List<RepoData>();
         private List<RepoData> RepoList { get; set; } = new List<RepoData>();

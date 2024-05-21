@@ -7,19 +7,15 @@
     <h1>@UserUrl</h1>
 </div>
 
-<div>
-    <p class="form form-floating mb-3">
-        <input type="text" name="find" class="form-control" @bind=FindInput @onkeydown="FindRepoEnter" />
-        <label>[User name]/[Repository name]</label>
-    </p>
+<div class="form form-floating mb-3">
+    <input type="text" name="find" class="form-control" @bind=FindInput @onkeydown="FindRepoEnter" />
+    <label>[User name]/[Repository name]</label>
 </div>
 
 <div class="My_repo">
-    <p>
-        <button id="My_repo" class="btn btn-primary" type="button" @onclick="ReposButtonClick" hidden=@IsNotMyProfile>My Repository</button>
-        <button id="Settings" class="btn btn-primary" type="button" @onclick="SettingsButtonClickAsync" hidden=@IsNotMyProfile>Settings</button>
-        <button id="Settings" class="btn btn-primary" type="button" @onclick="LogoutButtonClickAsync" hidden=@IsNotMyProfile>Logout</button>
-    </p>
+    <button id="My_repo" class="btn btn-primary" type="button" @onclick="ReposButtonClick" hidden=@IsNotMyProfile>My Repository</button>
+    <button id="Settings" class="btn btn-primary" type="button" @onclick="SettingsButtonClickAsync" hidden=@IsNotMyProfile>Settings</button>
+    <button id="Settings" class="btn btn-primary" type="button" @onclick="LogoutButtonClickAsync" hidden=@IsNotMyProfile>Logout</button>
 </div>
 
 <div class="Introduce">
