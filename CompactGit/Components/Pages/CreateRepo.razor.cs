@@ -36,7 +36,7 @@ namespace CompactGit.Components.Pages
 
             WriteRepo(list, loginCookie);
 
-            Cmd.CallCmd("git init --bare " + "gits/" + loginCookie + "/" + RepositoryName);
+            Cmd.CallCmd("git init --bare " + "C:/gits/" + loginCookie + "/" + RepositoryName);
 
             NavigationManager.NavigateTo("/repos/" + loginCookie);
         }

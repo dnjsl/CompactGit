@@ -6,8 +6,6 @@ namespace CompactGit.Components.Pages
 {
     public partial class MainRepo : ComponentBase
     {
-        public string ErrorMsg { get; set; } = "";
-
         [Parameter]
         public string UserUrl { get; set; } = default!;
 
@@ -42,7 +40,20 @@ namespace CompactGit.Components.Pages
 
         private bool ValidRepo()
         {
-            return Directory.Exists("gits/" + UserUrl + "/" +  RepoUrl);
+            if (!File.Exists("repos/" + UserUrl))
+            {
+                return false;
+            }
+
+            using (StreamReader sr = new StreamReader("repos/" + UserUrl))
+            {
+                string json = sr.ReadToEnd();
+                List<RepoData> repos = JsonSerializer.Deserialize<List<RepoData>>(json)!;
+
+                RepoData data = repos.Find(x => x.RepoName == RepoUrl)!;
+
+                return data != null;
+            }
         }
 
         private bool IsPublicRepo()
