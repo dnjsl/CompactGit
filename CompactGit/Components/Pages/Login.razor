@@ -3,21 +3,88 @@
 
 <PageTitle>Login</PageTitle>
 
-<div class="centering">
-    <h1>Login</h1>
-    <div class="form-floating mb-3">
-        <input type="text" class="form-control" @bind="Id" />
-        <label for="id">ID</label>
-    </div>
-    <div class="form-floating mb-3">
-        <input type="password" class="form-control" @bind="Passwd" pattern="" />
-        <label for="password">Password</label>
-    </div>
-    <div class="text-field">
-        <span style="color:red">@ErrorMsg</span>
-    </div>
-    <div>
-        <button type="submit" class="btn btn-primary" @onclick="LoginButtonClick">Login</button>
-        <button type="button" class="btn btn-primary" @onclick="SignUpButtonClick">Signup</button>
+
+<style>
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: black;
+    }
+
+    .login-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    .login-box {
+        background-color: #232227;
+        margin-top: 130px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        text-align: center;
+    }
+
+        .login-box h1 {
+            margin-bottom: 20px;
+            color : antiquewhite;
+        }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: white;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+    .button-group {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;       
+        background-color: #6f9bdd;
+    }
+    
+    .btn-detail {
+        margin-left: 4%;
+    }
+
+</style>
+
+<div class="login-container">
+    <div class="login-box">
+        <h1>Login</h1>
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" @bind="Id" />        
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" @bind="Passwd" pattern="" />           
+        </div>
+        <div class="text-field">
+            <span style="color:red">@ErrorMsg</span>
+        </div>
+        <div class="button-group">
+            <button type="submit" class="btn" @onclick="LoginButtonClick">Login</button>
+            <button type="button" class="btn btn-detail" @onclick="SignUpButtonClick">Signup</button>
+        </div>
     </div>
 </div>

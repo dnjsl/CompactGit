@@ -1,5 +1,6 @@
 using CompactGit.Utils;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web;
 using System.Text.Json;
 
 namespace CompactGit.Components.Pages
@@ -67,6 +68,16 @@ namespace CompactGit.Components.Pages
 
                 return data.IsPublic;
             }
+        }
+
+        private void AddFileButtonClick(MouseEventArgs e)
+        {
+            NavigationManager.NavigateTo("/AddFile/" + RepoUrl);
+        }
+
+        private void DeleteRepoButtonClick(MouseEventArgs e)
+        {
+            //NavigationManager.NavigateTo("/user/" + UserUrl);
         }
     }
 }
