@@ -3,21 +3,94 @@
 
 <PageTitle>@UserUrl</PageTitle>
 
-<div>
-    <h1>@UserUrl</h1>
-</div>
+<style>
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: black;
+        color: white; 
+    }
 
-<div class="form form-floating mb-3">
-    <input type="text" name="find" class="form-control" @bind=FindInput/>
-    <label>[User name]/[Repository name]</label>
-</div>
+    .main-container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
 
-<div class="My_repo">
-    <button id="My_repo" class="btn btn-primary" type="button" @onclick="ReposButtonClick" hidden=@IsNotMyProfile>My Repository</button>
-    <button id="Settings" class="btn btn-primary" type="button" @onclick="SettingsButtonClickAsync" hidden=@IsNotMyProfile>Settings</button>
-    <button id="Settings" class="btn btn-primary" type="button" @onclick="LogoutButtonClickAsync" hidden=@IsNotMyProfile>Logout</button>
-</div>
+    .header-buttons {
+        display: flex;
+        gap: 13px;
+        margin-right: -15px;
+        margin-top: 2.05rem;
+    }
 
-<div class="Introduce">
-    <h3>Introduce</h3>
+        .btn {
+            background-color: #6f9bdd;
+            color: black;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+
+
+    .search-container {
+        width: 100%;
+        margin-bottom: 15px;
+        margin-top: 15px;
+        display: flex;
+        height: 50%;
+    }
+
+        .search-container input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #333;
+            background-color: #222;
+            color: white;
+            margin-right: 10px;
+        }
+
+        .btn-search {
+            background-color: #6f9bdd;
+            color: black;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            
+        }
+
+
+    .additional-container {
+        flex: 1;
+        padding: 20px;
+        background-color: #1a1a1a;
+        border: 1px solid #333;
+        margin-top: 20px;
+        height: 25.5rem;
+    }
+
+</style>
+
+<div class="main-container">
+    <div>
+        <h1>@UserUrl</h1>
+    </div>
+    <main>
+        <div class="search-container">
+            <input type="text" name="find" placeholder="[User name] /[Repository name]" @bind=FindInput />
+            <button class="btn btn-search">Search</button>
+        </div>
+        <div class="additional-container">
+            <ul>
+                <li>result</li>
+            </ul>
+
+        </div>
+    </main>
+    <div class="header-buttons">
+        <button id="My_repo" class="btn" type="button" @onclick="ReposButtonClick" hidden=@IsNotMyProfile>My Repository</button>
+        <button id="Settings" class="btn" type="button" @onclick="LogoutButtonClickAsync" hidden=@IsNotMyProfile>Logout</button>
+    </div>
 </div>

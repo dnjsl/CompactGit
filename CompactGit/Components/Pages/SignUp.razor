@@ -2,34 +2,104 @@
 @rendermode InteractiveServer
 
 <PageTitle>Sign up</PageTitle>
+<style>
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: black;
+    }
 
-<div class="centering">
-    <h1>Sign up</h1>
-    <div class="form-floating mb-3">
-        <input @bind-value="Id" @bind-value:event="oninput" class="form-control" required />
-        <label for="id">ID</label>
-    </div>
-    <div class="form-floating mb-3">
-        <input @bind-value="Passwd" @bind-value:event="oninput" type="password" class="form-control" required />
-        <label for="password">Password</label>
-    </div>
-    <div class="form-floating mb-3">
-        <input @bind-value="PasswdRe" @bind-value:event="oninput" type="password" class="form-control" required />
-        <label for="password">Password (Retry)</label>
-    </div>
-    <div class="form-floating mb-3">
-        <input @bind-value="Nickname" @bind-value:event="oninput" required class="form-control" pattern="^[a-zA-Z0-9_-.]*$" />
-        <label for="nickname">Nickname</label>
-    </div>
-    <div class="form-floating mb-3">
-        <input @bind-value="Email" @bind-value:event="oninput" required class="form-control" pattern="^[a-zA-Z0-9_-.@@]*$" />
-        <label for="email">Email</label>
-    </div>
-    <div class="text-field">
-        <span style="color:red">@ErrorMsg</span>
-    </div>
-    <button type="button" class="btn btn-primary" @onclick="SignUpButtonClick">Sign up</button>
-    <div class="link">
-        Have already account?<a href="/">Go to login</a>
+    .signup-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    .signup-box {
+        background-color: #232227;
+        padding: 20px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        width: 350px;
+        height: 630px;
+        text-align: center;
+        color: white;
+    }
+
+        .signup-box h1 {
+            margin-bottom: 20px;
+           
+        }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: white;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+    .btn {
+        width: 30%;
+        padding: 10px;
+        margin-top: 10px;
+        color: black;
+        background-color: #6f9bdd;
+    }
+
+    .login-link {
+        margin-top: 20px;
+        font-size: 0.9em;
+    }
+</style>
+
+
+<div class="signup-container">
+    <div class="signup-box">
+        <h1>Sign up</h1>
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input @bind-value="Id" @bind-value:event="oninput" class="form-control" required />
+            
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input @bind-value="Passwd" @bind-value:event="oninput" type="password" class="form-control" required />
+            
+        </div>
+        <div class="form-group">
+            <label for="password">Password (Retry)</label>
+            <input @bind-value="PasswdRe" @bind-value:event="oninput" type="password" class="form-control" required />
+            
+        </div>
+        <div class="form-group">
+            <label for="nickname">Nickname</label>
+            <input @bind-value="Nickname" @bind-value:event="oninput" required class="form-control" pattern="^[a-zA-Z0-9_-.]*$" />
+            
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input @bind-value="Email" @bind-value:event="oninput" required class="form-control" pattern="^[a-zA-Z0-9_-.@@]*$" />
+            
+        </div>
+        <div class="text-field">
+            <span style="color:red">@ErrorMsg</span>
+        </div>
+        <button type="button" class="btn" @onclick="SignUpButtonClick">Sign up</button>
+        <div class="login-link">
+            Have already account?<a href="/">Go to login</a>
+        </div>
     </div>
 </div>
