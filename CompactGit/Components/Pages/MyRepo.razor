@@ -5,45 +5,105 @@
 
 <h1>My Repository</h1>
 
-<div class="form-floating mb-3">
-    <input type="text" class="form-control" @bind="FindInput">
-    <label>Repository Name</label>
-</div>
 
-<div>
-    <button id="Settings" class="btn btn-primary"
-            type="button"
-            @onclick="ProfileButtonClick">
-        Profile
-    </button>
+<style>
+    body {
+        background-color: black;
+        color: white;
+    }
 
-    <button id="New" class="btn btn-primary" type="button" @onclick="NewButtonClickAsync">New</button>
-    <button class="btn btn-primary" @onclick="ToggleTypeDropdown">Type</button>
-    <div id="typeDropdown" style="display: @(showTypeDropdown ? "block" : "none")">
-        <button class="btn btn-primary" @onclick="() => FilterRepos(null)">All</button>
-        <button class="btn btn-primary" @onclick="() => FilterRepos(true)">Public</button>
-        <button class="btn btn-primary" @oncProfileButtonClickfalse)">Private</button>
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        text-align: left;
+    }
+
+    .search-bar {
+        width: 130%;
+        margin-bottom: 15px;
+        margin-top: 15px;
+        margin-left: -170px;
+        display: flex;
+        height: 60px;
+    }
+
+        .search-bar input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #333;
+            background-color: #222;
+            color: white;
+            margin-right: 10px;
+        }
+
+    .button {
+        background-color: #6f9bdd;
+        color: black;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+
+    .button-list {
+        display: flex;
+        justify-content: left;
+        margin-left: -170px;
+        margin-top: 20px;
+    }
+
+    .table-custom {
+        color: white;
+        margin-left: -160px;
+        margin-top: 30px;
+        width: 128%;
+    }
+</style>
+
+<div class="container">
+    <div class="search-bar">
+        <input type="text" placeholder="Repository Name" @bind="FindInput">
+    </div>
+
+    <div class="button-list">
+        <button id="Settings" class="button"
+                type="button"
+                @onclick="ProfileButtonClick">
+            Profile
+        </button>
+
+        <button id="New" class="button" type="button" @onclick="NewButtonClickAsync">New</button>
+        <button class="button" @onclick="ToggleTypeDropdown">Type</button>
+        <div id="typeDropdown" style="display: @(showTypeDropdown ? "block" : "none")">
+            <button class="button" @onclick="() => FilterRepos(null)">All</button>
+            <button class="button" @onclick="() => FilterRepos(true)">Public</button>
+            <button class="button" @oncProfileButtonClickfalse)">Private</button>
+        </div>
+    </div>
+
+    <div>
+        <table class='table table-custom'>
+            <thead>
+                <tr>
+                    <th>Repository</th>
+                    <th>Description</th>
+                    <th>Is Public</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var repo in ShowRepoList)
+                {
+                    <tr>
+                        <td><a href="/r/@repo.UserId/@repo.RepoName">@repo.UserId/@repo.RepoName</a></td>
+                        <td>@repo.Description</td>
+                        <td>@repo.IsPublic</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
 </div>
 
-<div>
-    <table class='table'>
-        <thead>
-            <tr>
-                <th>Repository</th>
-                <th>Description</th>
-                <th>Is Public</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var repo in ShowRepoList)
-            {
-                <tr>
-                    <td><a href="/r/@repo.UserId/@repo.RepoName">@repo.UserId/@repo.RepoName</a></td>
-                    <td>@repo.Description</td>
-                    <td>@repo.IsPublic</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
+

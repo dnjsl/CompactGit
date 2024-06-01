@@ -2,53 +2,112 @@
 @rendermode InteractiveServer
 
 <PageTitle>New Repository</PageTitle>
+<h1>Create New Repository</h1>
 
-<div class="form-wrapper w-100 rounded-4">
-    <h1>Create New Repository</h1>
-    
-    <div class="d-flex flex-column gap-4">
+<style>
+    body {
+        background-color: black;
+        color: white;
+    }
+
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        text-align: left;
+        
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+        margin-left: -150px;
+    }
+
+    .search-bar {
+        width: 113%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #333;
+        background-color: #222;
+        color:white;
+        border-radius: 5px;
+        font-size: 16px;
+        height: 60px;
+    }
+
+
+    .checkbox-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .checkbox-custom {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+    }
+
+        .custom-label {
+        font-size: 20px;
+    }
+
+
+    .button {
+        background-color: #6f9bdd;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: -160px;
+    }
+
+    .text-right {
+        text-align: right;
+    }
+
+</style>
+
+<div class="container">
         <div>
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control" @bind="RepositoryName" id="floatingRepoName" placeholder="Type your repository name" />
-                <label for="floatingRepoName">Repository name</label>
+            <div class="form-group">
+            <input type="text" class="search-bar" @bind="RepositoryName" id="floatingRepoName" placeholder="Repository name" />
+
             </div>
 
-            <div class="form-floating">
-                <input type="text" class="form-control" @bind="RepositoryDescription" id="floatingRepoDesc" placeholder="Type your repository description" />
-                <label for="floatingRepoDesc">Repository description</label>
+        <div class="form-group">
+            <input type="text" class="search-bar" @bind="RepositoryDescription" id="floatingRepoDesc" placeholder="Repository description" />
             </div>
         </div>
 
-        <div>
-            <label class="list-group-item d-flex gap-2 mb-2">
-                <input class="form-check-input flex-shrink-0 fs-5 readme-mark" type="checkbox" @bind="AddReadme" />
-                <span>
-                    Add a README file
-                    <small class="d-block text-body-secondary">This is where you can write a long description for your project.</small>
-                </span>
-            </label>
-
-            <label class="list-group-item d-flex gap-2 mb-2">
-                <input class="form-check-input flex-shrink-0 fs-5 readme-mark" type="checkbox" @bind="IsPublic" />
-                <span>
-                    Public Repository
-                    <small class="d-block text-body-secondary">Choose want to public to repo.</small>
-                </span>
-            </label>
-
-            <label class="list-group-item d-flex gap-2">
-                <input class="form-check-input flex-shrink-0 fs-5 gitignore-mark" type="checkbox" @bind="ChooseGitignore" />
-                <span>
-                    Choose a .gitignore file
-                    <small class="d-block text-body-secondary">Choose which files not to track from a list of templates.</small>
-                </span>
-            </label>
+        <div class="checkbox-group">
+        <div class="form-group">
+            <input class="checkbox-custom" type="checkbox" @bind="AddReadme" />
+            <span>
+                <label for="addFile" class="custom-label">Add a README file</label>
+                <small class="d-block text-body-secondary">This is where you can write a long description for your project.</small>
+            </span>
         </div>
 
-        <div class="d-flex justify-content-end">
-            <button class="btn btn-primary" type="submit" @onclick="CreateRepositoryAsync">Create repository</button>
+        <div class="form-group">
+            <input class="checkbox-custom" type="checkbox" @bind="IsPublic" />
+            <span>
+                <label for="publicRepository" class="custom-label">Public Repository</label>
+                <small class="d-block text-body-secondary">Choose want to public to repo.</small>
+            </span>
         </div>
-    </div>
+
+        <div class="form-group">
+            <input class="checkbox-custom" type="checkbox" @bind="ChooseGitignore" />
+            <span>
+                <label for="chooseFile" class="custom-label">Choose a .gitignore file</label>
+                <small class="d-block text-body-secondary">Choose which files not to track from a list of templates.</small>
+            </span>
+        </div>
+        </div>
+
+        <div class="form-group text-right">
+            <button class="button" type="submit" @onclick="CreateRepositoryAsync">Create repository</button>
+        </div>
 </div>
 
 
